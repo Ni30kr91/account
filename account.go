@@ -9,24 +9,22 @@ func main() {
 		{1, 9, 5},
 		{2, 7, 9},
 	}
-	fmt.Println(input)
-	var sum int
-	arr := []int{}
-	for i := 0; i < len(input); i++ {
-		sum = 0
-		for j := 0; j < len(input[i]); j++ {
 
-			sum = sum + input[i][j]
+	fmt.Println(maxwealth(input))
+}
+func maxwealth(accounts [][]int) int {
+	answer := 0
+	for i := 0; i < len(accounts); i++ {
+		element := accounts[i]
+		sum := 0
+		for j := 0; j < len(element); j++ {
+
+			sum = sum + element[j]
 		}
-		fmt.Println(sum)
-		arr = append(arr, sum)
-	}
-	fmt.Println(arr)
-	largest := arr[0]
-	for k := 0; k < len(arr); k++ {
-		if largest < arr[k] {
-			largest = arr[k]
+		if answer < sum {
+			answer = sum
 		}
+
 	}
-	fmt.Println("largest wealth is:", largest)
+	return answer
 }
